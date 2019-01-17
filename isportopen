@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+import socket  
+import sys
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print 'usage: %s host port' % sys.argv[0]
+        sys.exit(0)
+
+    target = sys.argv[1]
+    i = int(sys.argv[2])
+
+    targetIP = socket.gethostbyname(target)
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    result = s.connect_ex((targetIP, i))
+
+    if(result == 0) :
+        print 'Port %d: OPEN' % (i,)
+    else:
+        print 'Port %d: CLOSED' % (i,)
+    s.close()
+    sys.exit(result)
+
