@@ -18,7 +18,8 @@
   # Install shellcheck
   cabal install shellcheck;
   if cp -fv ~/.cabal/bin/shellcheck /usr/local/bin/; then
-      echo "shellcheck installed to /usr/local/bin""
-  else;
+      echo "shellcheck installed to /usr/local/bin"
+  else
       echo "shellcheck located at ~/.cabal/bin/shellcheck"
+  fi
 
