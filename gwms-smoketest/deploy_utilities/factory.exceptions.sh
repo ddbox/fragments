@@ -1,13 +1,17 @@
 #!/bin/bash
 cd `dirname $0`
 source ./setup.sh
-out=$(timeout 10 ssh root@$fact_fqdn 'find /var/log/gwms-factory -type f | xargs grep -iE "exception"' )
+if [ "$1" = "-v" ]; then
+    echo python exceptions on $fact_fqdn
+fi
+out=$(timeout 20 ssh root@$fact_fqdn 'find /var/log/gwms-factory -type f | xargs grep -iE "exception" | grep -v "OK"' )
 if [ "$out" = "" ]; then
     if [ "$1" = "-v" ]; then
         echo "no python exceptions found on on factory $fact_fqdn"
     fi
     exit 0
 else
+    echo python exceptions on $fact_fqdn
     while IFS= read ; do
         echo $REPLY
     done <<< "$out"

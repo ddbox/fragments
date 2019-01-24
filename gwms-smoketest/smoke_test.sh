@@ -37,8 +37,7 @@ main() {
         usage
     fi
     if [ "$X509_USER_PROXY" = "" ]; then
-        kx509
-        export X509_USER_PROXY=/tmp/krb5cc_`id -u`
+        try source ./make_voms_proxy.sh nova
     fi
     try source $1
     export PERFORM_UPGRADE=$(echo $PERFORM_UPGRADE | tr 'a-z' 'A-Z')
