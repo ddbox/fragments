@@ -1,0 +1,12 @@
+{
+  "examples/init.pp": "2e3da3bc7567dceb3262f8cd684369a3",
+  "manifests/files.pp": "9f43d34e672b97def212c713ff72bd54",
+  "manifests/init.pp": "c8179a890ede6589dd69026ebbd53d33",
+  "manifests/packages.pp": "0d5c1f9948f66704ff0b776bf0bf48b4",
+  "manifests/services.pp": "997d6adf2b6728b548c50eed41d8704d",
+  "manifests/vars.pp": "f8af2c49fe1d7247a4c671c383c4c7d5",
+  "metadata.json": "cd1a295cebb67f8ee36b30e6dd1c16be",
+  "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+  "templates/etc.cvmfs.default.local.erb": "df57cf2e88533eaaf182076e2f25e580",
+  "templates/etc.sysconfig.iptables.erb": "deffbe244012d8820b51e4791269d472"
+}
