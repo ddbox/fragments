@@ -1,17 +1,21 @@
 ##### use 'ce' and 'dos' as variables below #####
+# ce currently [ el6_osg33, el6_osg34, el7_osg33, el7_osg34 ]
 ce = compute_element
+# dos in [ 'default', 'rhel6', 'rhel7 ] will try to run singularity on ce
 dos = desired_op_sys
-####
+#### variables affect these condor/gwms settings #####
 +DESIRED_Sites = "$(ce)"
 +Desired_OS = "$(dos)"
 +REQUIRED_OS = "$(dos)" 
+# $(ce).sh must exist, copy systeminfo.sh to $(ce.sh) if needed
 executable = $(ce).sh
 output = joboutput/$(ce).$(dos).out.$(cluster).$(process)
 error = joboutput/$(ce).$(dos).err.$(cluster).$(process)
 log = joboutput/$(ce).$(dos).log.$(cluster).$(process)
 ##### singularity #########
-#these can be tweaked to use custom images in cvmfs, +REQUIRED_OS above does the all the
-#default singularity selection below when $ce and $dos are changed
+# these can be tweaked to use custom images in /cvmfs/opensciencegrid.org/ 
+# if they are commented out +REQUIRED_OS above does the all the
+# singularity image selection based on values of $ce and $dos 
 #
 #SINGULARITY_IMAGE_NULL = ""
 #SINGULARITY_IMAGE_6 = "/cvmfs/singularity.opensciencegrid.org/opensciencegrid/osgvo-el6:latest"
