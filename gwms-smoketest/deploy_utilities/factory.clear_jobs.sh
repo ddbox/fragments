@@ -6,7 +6,7 @@ if [ "$1" = "" ] ; then
 else
     USER=$1
 fi
-for NM in $(timeout 10 ssh root@$fact_fqdn condor_status -schedd -af name); do
-    timeout 10 ssh root@$fact_fqdn condor_rm -name $NM $USER
+for NM in $(ssh -t root@$fact_fqdn condor_status -schedd -af name); do
+    ssh -t  root@$fact_fqdn condor_rm -name $NM $USER
 done
 

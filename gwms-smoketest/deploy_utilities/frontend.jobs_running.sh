@@ -2,7 +2,7 @@
 cd `dirname $0`
 source ./setup.sh
 
-#timeout 10 ssh root@$vofe_fqdn condor_q -g -nob -all  | grep ' R ' > /dev/null 2>&1
+#ssh -t root@$vofe_fqdn condor_q -g -nob -all  | grep ' R ' > /dev/null 2>&1
 ./frontend.condor_q.sh | grep ' R ' > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     if [ "$1" = "-v" ]; then

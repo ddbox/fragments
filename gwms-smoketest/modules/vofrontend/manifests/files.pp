@@ -1,5 +1,8 @@
 class vofrontend::files{
   
+  user {'frontend':
+    ensure=> present,
+  }
 
   file { '/etc/condor/certs/condor_mapfile':
     ensure  => file,
@@ -14,8 +17,17 @@ class vofrontend::files{
     mode    => '0644',
     content => template('vofrontend/frontend.xml.erb'),
   }
+  file { '/tmp/vo_proxy':
+    ensure  => file,
+    owner   => 'frontend',
+    mode    => '0600',
+  }
 
-
+  file { '/tmp/frontend_proxy':
+    ensure  => file,
+    owner   => 'frontend',
+    mode    => '0600',
+  }
 
 }
 

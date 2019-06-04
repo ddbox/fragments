@@ -14,7 +14,7 @@ class osg_client::packages {
     }
 
     exec { 'yum-clean-all':
-      command => '/bin/echo yum clean all',
+      command => '/usr/bin/yum clean all',
     }
 
     package { 'fermilab-util_kx509.noarch' :
@@ -51,4 +51,8 @@ class osg_client::packages {
     }
   
 
+    package { 'osg-wn-client':
+      ensure          => present,
+      install_options => '--enablerepo=osg',
+    }
 }

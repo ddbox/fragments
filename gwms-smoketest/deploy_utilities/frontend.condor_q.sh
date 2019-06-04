@@ -7,4 +7,4 @@ if [  "$VER" \< "8.5" ]; then
 else
     NOB="-nobatch -all"
 fi
-timeout 10 ssh root@$vofe_fqdn condor_q -g $NOB $1 
+ssh -t root@$vofe_fqdn condor_q -g $NOB $1 

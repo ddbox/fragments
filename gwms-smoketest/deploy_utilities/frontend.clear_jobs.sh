@@ -6,4 +6,4 @@ if [ "$1" = "" ] ; then
 else
     USER=$1
 fi
-timeout 10 ssh root@$vofe_fqdn condor_rm $USER
+ssh -t root@$vofe_fqdn condor_rm $USER

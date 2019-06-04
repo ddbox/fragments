@@ -4,7 +4,7 @@ source ./setup.sh
 if [ "$1" = "-v" ]; then
     echo python exceptions on $fact_fqdn
 fi
-out=$(timeout 20 ssh root@$fact_fqdn 'find /var/log/gwms-factory -type f | xargs grep -iE "exception" | grep -v "OK"' )
+out=$(ssh -t root@$fact_fqdn 'find /var/log/gwms-factory -type f | xargs grep -iE "exception" | grep -v "OK"' )
 if [ "$out" = "" ]; then
     if [ "$1" = "-v" ]; then
         echo "no python exceptions found on on factory $fact_fqdn"

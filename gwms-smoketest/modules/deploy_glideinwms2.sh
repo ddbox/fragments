@@ -420,7 +420,7 @@ else
     issuer="`openssl x509 -in $vofe_proxy -out -text -issuer | sed -e 's|issuer= ||g'`"
     case "$subject" in
         *"$issuer"*) vofe_dn="$issuer" ;;
-        *) voef_dn="$subject" ;;
+        *) vofe_dn="$subject" ;;
     esac
 fi
 
@@ -497,12 +497,13 @@ scp $fact_install_script root@$fact_fqdn:/tmp/fact_install.sh
 scp $vofe_install_script root@$vofe_fqdn:/tmp/vofe_install.sh
 if [ !  -z "$vofe_proxy" ]; then
     scp $vofe_proxy root@$vofe_fqdn:/tmp/frontend_proxy
+    scp $vofe_proxy root@$vofe_fqdn:/tmp/vo_proxy
 fi
-./install_module.sh $fact_fqdn factory  "fact_fqdn => '$fact_fqdn', vofe_fqdn => '$vofe_fqdn'"
+./install_module.sh $fact_fqdn factory  "fact_fqdn => '$fact_fqdn', vofe_fqdn => '$vofe_fqdn', vofe_dn => '$vofe_dn'"
 ./install_module.sh $vofe_fqdn vofrontend  "fact_fqdn => '$fact_fqdn', vofe_fqdn => '$vofe_fqdn', vofe_dn =>'$vofe_dn'"
 
-ssh root@$fact_fqdn  /tmp/fact_install.sh > $FACT_LOG.$TS
-ssh root@$vofe_fqdn  /tmp/vofe_install.sh > $VOFE_LOG.$TS
+#ssh root@$fact_fqdn  /tmp/fact_install.sh > $FACT_LOG.$TS
+#ssh root@$vofe_fqdn  /tmp/vofe_install.sh > $VOFE_LOG.$TS
 
-tail -1  $FACT_LOG.$TS
-tail -1 $VOFE_LOG.$TS
+#tail -1  $FACT_LOG.$TS
+#tail -1 $VOFE_LOG.$TS

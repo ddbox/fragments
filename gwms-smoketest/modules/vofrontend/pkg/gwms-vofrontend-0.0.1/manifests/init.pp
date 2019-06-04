@@ -21,7 +21,10 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class vofrontend($fact_fqdn='FIXME', $vofe_fqdn='FIXME', $vofe_dn='FIXME')  {
+class vofrontend($fact_fqdn='FIXME', 
+                  $vofe_fqdn='FIXME', 
+                  $vofe_dn='FIXME', 
+                  $dn_rt='/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab')  {
     class { 'vofrontend::vars' : }
     class { 'vofrontend::packages' : }
     class { 'vofrontend::files' : }

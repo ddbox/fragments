@@ -43,7 +43,7 @@ main() {
     export PERFORM_UPGRADE=$(echo $PERFORM_UPGRADE | tr 'a-z' 'A-Z')
     echo DEPLOY_COMMAND is $DEPLOY_COMMAND
     echo PERFORM_UPGRADE is $PERFORM_UPGRADE
-    try $DEPLOY_COMMAND
+    try bash  $DEPLOY_COMMAND
     cd deploy_utilities
     try ./monitor_job_progress.sh
     if [ "$PERFORM_UPGRADE" = "TRUE" ]; then

@@ -9,6 +9,13 @@ class factory::files{
     require => Package['glideinwms-factory'],
   }
 
+  file { '/etc/condor/privsep_config':
+    ensure  => file,
+    owner   => 'root',
+    mode    => '0644',
+    content => template('factory/etc.condor.privsep_config.erb'),
+  }
+
   file { '/etc/condor/certs/condor_mapfile':
     ensure  => file,
     owner   => 'root',

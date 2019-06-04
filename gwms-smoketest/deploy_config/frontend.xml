@@ -20,14 +20,14 @@
          <match_attrs>
          </match_attrs>
          <collectors>
-            <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=fermicloud130.fnal.gov" comment="Define factory collectors globally for simplicity" factory_identity="gfactory@fermicloud130.fnal.gov" my_identity="vofrontend_service@fermicloud130.fnal.gov" node="fermicloud130.fnal.gov"/>
+             <collector DN="/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud130.fnal.gov" comment="Define factory collectors globally for simplicity" factory_identity="gfactory@fermicloud130.fnal.gov" my_identity="vofrontend_service@fermicloud130.fnal.gov" node="fermicloud130.fnal.gov"/>
          </collectors>
       </factory>
       <job comment="Define job constraint and schedds globally for simplicity" query_expr="(JobUniverse==5)&amp;&amp;(GLIDEIN_Is_Monitor =!= TRUE)&amp;&amp;(JOB_Is_Monitor =!= TRUE)">
          <match_attrs>
          </match_attrs>
          <schedds>
-            <schedd DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=fermicloud063.fnal.gov" fullname="fermicloud063.fnal.gov"/>
+             <schedd DN="/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud063.fnal.gov" fullname="fermicloud063.fnal.gov"/>
          </schedds>
       </job>
    </match>
@@ -94,8 +94,8 @@ files>
    <ccbs>
    </ccbs>
    <collectors>
-      <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=fermicloud063.fnal.gov" group="default" node="fermicloud063.fnal.gov:9618" secondary="False"/>
-      <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=fermicloud063.fnal.gov" group="default" node="fermicloud063.fnal.gov:9620-9630" secondary="True"/>
+       <collector DN="/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud063.fnal.gov" group="default" node="fermicloud063.fnal.gov:9618" secondary="False"/>
+       <collector DN="/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab/CN=fermicloud063.fnal.gov" group="default" node="fermicloud063.fnal.gov:9620-9630" secondary="True"/>
    </collectors>
    <files>
    </files>

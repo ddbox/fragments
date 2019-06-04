@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Tool to automate the GlideinWMS rpm deployment and testing
 # Author: Parag Mhashilkar
@@ -25,11 +25,11 @@ function is_vm_up() {
     local retries=0
     echo "Waiting for $fqdn to boot up "
     while [ $retries -lt 30 ] ; do
-        tmpout=`timeout 6 ssh -o StrictHostKeyChecking=no root@$fqdn hostname 2>/dev/null`
-        if [ "$tmpout" != "$fqdn" ] ; then
+        tmpout=$(ssh -t -o StrictHostKeyChecking=no root@$fqdn hostname 2>/dev/null)
+        if [ $? -ne 0  ] ; then
             echo -n "."
-            sleep 30
-            retries=`expr $retries + 1`
+            sleep 10
+            retries=$(expr $retries + 1)
         else
             return 0
         fi

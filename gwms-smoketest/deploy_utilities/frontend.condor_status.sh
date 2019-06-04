@@ -2,4 +2,4 @@
 cd `dirname $0`
 source ./setup.sh
 
-timeout 10 ssh root@$vofe_fqdn condor_status -any $1 
+ssh -t root@$vofe_fqdn condor_status -any $1 

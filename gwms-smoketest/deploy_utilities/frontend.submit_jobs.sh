@@ -6,4 +6,4 @@ if [ "$1" = "" ] ; then
 else
     USER=$1
 fi
-timeout 10 ssh root@$vofe_fqdn 'cd ~testuser/testjobs; su testuser -c "condor_submit testjob.singularity.jdf"'
+ssh -t root@$vofe_fqdn 'cd ~testuser/testjobs; su testuser -c "condor_submit testjob.singularity.jdf"'

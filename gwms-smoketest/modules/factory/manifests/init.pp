@@ -21,7 +21,11 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class factory($condor_tarball_version='8.6.5', $fact_fqdn='FIXME', $vofe_fqdn='FIXME')  {
+class factory($condor_tarball_version='8.6.5', 
+              $fact_fqdn='FIXME', 
+              $vofe_fqdn='FIXME', 
+              $vofe_dn='FIXME',
+              $dn_rt='/DC=org/DC=incommon/C=US/ST=IL/L=Batavia/O=Fermi Research Alliance/OU=Fermilab')  {
     class { 'factory::vars' : }
     class { 'factory::packages' : }
     class { 'factory::files' : }

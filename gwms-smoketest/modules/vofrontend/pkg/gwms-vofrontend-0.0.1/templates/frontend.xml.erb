@@ -20,14 +20,14 @@
          <match_attrs>
          </match_attrs>
          <collectors>
-             <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" comment="Define factory collectors globally for simplicity" factory_identity="gfactory@<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" my_identity="vofrontend_service@<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" node="<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>"/>
+             <collector DN="<%= scope.lookupvar('vofrontend::vars::dn_rt') %>/CN=<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" comment="Define factory collectors globally for simplicity" factory_identity="gfactory@<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" my_identity="vofrontend_service@<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>" node="<%= scope.lookupvar('vofrontend::vars::fact_fqdn') %>"/>
          </collectors>
       </factory>
       <job comment="Define job constraint and schedds globally for simplicity" query_expr="(JobUniverse==5)&amp;&amp;(GLIDEIN_Is_Monitor =!= TRUE)&amp;&amp;(JOB_Is_Monitor =!= TRUE)">
          <match_attrs>
          </match_attrs>
          <schedds>
-             <schedd DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" fullname="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>"/>
+             <schedd DN="<%= scope.lookupvar('vofrontend::vars::dn_rt') %>/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" fullname="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>"/>
          </schedds>
       </job>
    </match>
@@ -89,8 +89,8 @@
       </group>
    </groups>
    <collectors>
-       <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" group="default" node="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>:9618" secondary="False"/>
-      <collector DN="/DC=org/DC=opensciencegrid/O=Open Science Grid/OU=Services/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" group="default" node="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>:9618?sock=collector1-40" secondary="True"/>
+       <collector DN="<%= scope.lookupvar('vofrontend::vars::dn_rt') %>/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" group="default" node="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>:9618" secondary="False"/>
+      <collector DN="<%= scope.lookupvar('vofrontend::vars::dn_rt') %>/CN=<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>" group="default" node="<%= scope.lookupvar('vofrontend::vars::vofe_fqdn') %>:9618?sock=collector1-40" secondary="True"/>
    </collectors>
    <files>
    </files>
