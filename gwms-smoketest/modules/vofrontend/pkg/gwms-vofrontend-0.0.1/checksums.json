@@ -1,12 +1,3 @@
 {
-  "examples/init.pp": "2e3da3bc7567dceb3262f8cd684369a3",
-  "manifests/files.pp": "671210fca735fd199eb02e5a73e7e2ec",
-  "manifests/init.pp": "d8496efa368464bbd076ea5bee73934f",
-  "manifests/packages.pp": "73a761e510e81b745bcc426fbcf5f7a5",
-  "manifests/services.pp": "119366f79f8ecf2c25ca5e6ce7e5af49",
-  "manifests/vars.pp": "182f1aae93a4246e309f6618bdbe6063",
-  "metadata.json": "9d76cb78d65e1f73d7688c23ce2c5cc7",
-  "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
-  "templates/etc.condor.certs.condor_mapfile.erb": "ce0a9115130207076cd92b915b7b0e9e",
-  "templates/frontend.xml.erb": "04098cb8cb5b2759ca75d93ffdbef4df"
+  "metadata.json": "9d76cb78d65e1f73d7688c23ce2c5cc7"
 }

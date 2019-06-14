@@ -3,7 +3,7 @@
   "manifests/files.pp": "bea7d661e86505f81727eb02ec8ae37c",
   "manifests/init.pp": "3007fe1b8303acfdff6e7fe3b0938648",
   "manifests/packages.pp": "a4434bfe2345095823c5c156838d937d",
-  "manifests/services.pp": "eb6fb4f5c2e6294bc839106cd6eb8b7b",
+  "manifests/services.pp": "28fdf1a407394316dfda04c1695e7d5b",
   "manifests/vars.pp": "a08b7f0e615bdbdad022f90b739c9712",
   "metadata.json": "72d23cf08885f214ddbe656906bfe84e",
   "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
@@ -13,5 +13,8 @@
   "templates/etc.condor.certs.condor_mapfile.erb": "5e0f1c8198c57fc7e51bdc1c8d577d4c",
   "templates/etc.condor.privsep_config.erb": "233f43e7df8f49bdd73bb863f59e3805",
   "templates/etc.cvmfs.default.local.erb": "df57cf2e88533eaaf182076e2f25e580",
-  "templates/etc.sysconfig.iptables.erb": "deffbe244012d8820b51e4791269d472"
+  "templates/etc.sysconfig.iptables.erb": "4484a84137591da10c2728bff6e82d5f",
+  "templates/frontend-template-rpm.xml": "b8100c7e9e0953034f91a2f4f774d77c",
+  "templates/frontend-template.xml": "80b3aefc0ce1404d7ba694e2176ecbb0",
+  "templates/frontend.xml": "2db911ab498911c73809b02e73f496b7"
 }

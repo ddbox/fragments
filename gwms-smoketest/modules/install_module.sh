@@ -27,9 +27,9 @@ puppet module build $2
 tarpath=$(find $2 -name '*.tar.gz' -print)
 tarfile=$(basename $tarpath)
 scp $tarpath root@${REMOTE_HOST}:$tarfile
-echo "puppet module list | grep gwms-$2" > $REMOTE_SCRIPT
+echo "puppet module list | grep $2" > $REMOTE_SCRIPT
 echo "if [ \$? -eq 0 ]; then" >> $REMOTE_SCRIPT
-echo "    puppet module uninstall gwms-$2" >> $REMOTE_SCRIPT
+echo "    puppet module uninstall $2" >> $REMOTE_SCRIPT
 echo "fi" >> $REMOTE_SCRIPT
 echo "puppet module install $tarfile" >>$REMOTE_SCRIPT
 echo "puppet apply -e \"class { $2 : $3 }\"" >> $REMOTE_SCRIPT
