@@ -9,7 +9,7 @@ default_ca = CA_default
 
 [ CA_default ]
 # Directory and file locations.
-dir               = $__STARTDIR__/root/ca
+dir               = root/ca
 certs             = $dir/certs
 crl_dir           = $dir/crl
 new_certs_dir     = $dir/newcerts
@@ -81,8 +81,8 @@ emailAddress                    = Email Address
 
 # Optionally, specify some defaults.
 countryName_default             = CA
-stateOrProvinceName_default     = British Columbia
-localityName_default            = Empire of Dirt
+stateOrProvinceName_default     = British, Columbia
+localityName_default            = Empire O\'Dirt
 0.organizationName_default      = Cockford-Ollie
 organizationalUnitName_default  = Machine and Marine
 commonName_default              = cockford.org

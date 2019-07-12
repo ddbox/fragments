@@ -9,21 +9,22 @@ default_ca = CA_default
 
 [ CA_default ]
 # Directory and file locations.
-dir               = $__STARTDIR__/root/ca/intermediate
-certs             = $dir/certs
-crl_dir           = $dir/crl
-new_certs_dir     = $dir/newcerts
+dir               = root/ca
+dir2               = $dir/intermediate
+certs             = $dir2/certs
+crl_dir           = $dir2/crl
+new_certs_dir     = $dir2/newcerts
 database          = $dir/index.txt
 serial            = $dir/serial
 RANDFILE          = $dir/private/.rand
 
 # The root key and root certificate.
-private_key       = $dir/private/intermediate.key.pem
-certificate       = $dir/certs/intermediate.cert.pem
+private_key       = $dir2/private/intermediate.key.pem
+certificate       = $dir2/certs/intermediate.cert.pem
 
 # For certificate revocation lists.
-crlnumber         = $dir/crlnumber
-crl               = $dir/crl/intermediate.crl.pem
+crlnumber         = $dir2/crlnumber
+crl               = $dir2/crl/intermediate.crl.pem
 crl_extensions    = crl_ext
 default_crl_days  = 30
 
@@ -81,8 +82,8 @@ emailAddress                    = Email Address
 
 # Optionally, specify some defaults.
 countryName_default             = CA
-stateOrProvinceName_default     = British Columbia
-localityName_default            = Empire of Dirt
+stateOrProvinceName_default     = British, Columbia
+localityName_default            = Empire O\'Dirt
 0.organizationName_default      = Cockford-Ollie
 organizationalUnitName_default  = Machine and Marine
 commonName_default              = cockford.org

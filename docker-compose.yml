@@ -1,0 +1,58 @@
+#FILE: docker-compose.yml
+#USAGE: docker stack deploy -c docker-compose.yml htcondor
+#PURPOSE: creates a network of htcondor containers
+#         master: contains collector negotiator
+#         schedd: contains schedd
+#         executor.1-5: worker nodes
+#AUTHOR: Dennis Box, dbox@fnal.gov
+#ACKNOWLEGEMENTS: much thanks to creator of dscnaf/htcondor-centos container
+#                 Matteo Panella <matteo.panella@cnaf.infn.it>
+#                 Also based on docker tutorials at 
+#                 https://docs.docker.com/get-started/part3/ and
+#                 https://docs.docker.com/get-started/part4/
+version: '3'
+services:
+  master:
+    image: dscnaf/htcondor-centos
+    command:  -m
+    networks:
+        - condornet
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "5"
+
+  executor:
+    image: dscnaf/htcondor-centos
+    command:  -e master
+    depends_on:
+        - master
+    deploy:
+        replicas: 5
+    networks:
+        - condornet
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "5"
+    restart: on-failure
+
+  schedd:
+    image: dscnaf/htcondor-centos
+    command:  -s master
+    depends_on:
+        - master
+    networks:
+        - condornet
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "5"
+    restart: on-failure
+networks:
+    condornet:
+        driver: overlay
+
