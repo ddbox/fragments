@@ -1,0 +1,8 @@
+[slf-security]
+name=Scientific Linux Fermi - Security
+baseurl=http://ssirepo04.fnal.gov/repos/sl-security-el7-x86_64-delayed
+enabled=1
+gpgcheck=1
+gpgkey=http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/RPM-GPG-KEY-sl7 http://ftp1.scientificlinux.org/linux/scientific/7x/x86_64/os/RPM-GPG-KEY-sl http://131.247.250.70/scientific/obsolete/308/i386/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+failovermethod=priority
+priority=10

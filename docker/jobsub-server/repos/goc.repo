@@ -1,0 +1,28 @@
+[goc]
+name=OSG Software for Enterprise Linux 7 - GOC Production - $basearch
+baseurl=https://repo.opensciencegrid.org/osg/goc/el7/production/$basearch
+#mirrorlist=https://repo.opensciencegrid.org/mirror/osg/goc/el7/production/$basearch
+failovermethod=priority
+priority=98
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG
+
+[goc-source]
+name=OSG Software for Enterprise Linux 7 - GOC Production - $basearch - Source
+baseurl=https://repo.opensciencegrid.org/osg/goc/el7/production/source/SRPMS
+failovermethod=priority
+priority=98
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG
+
+[goc-debuginfo]
+name=OSG Software for Enterprise Linux 7 - GOC Production - $basearch - Debug
+baseurl=https://repo.opensciencegrid.org/osg/goc/el7/production/$basearch/debug
+failovermethod=priority
+priority=98
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG
+

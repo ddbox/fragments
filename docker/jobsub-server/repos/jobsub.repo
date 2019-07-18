@@ -1,0 +1,5 @@
+[jobsub]
+name=Jobsub
+baseurl=http://jobsub.fnal.gov/rpms/dev/6/$basearch/
+enabled=1
+gpgcheck=0
