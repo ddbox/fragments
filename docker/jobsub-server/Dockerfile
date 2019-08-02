@@ -7,7 +7,22 @@ EXPOSE 9615
 EXPOSE 9618
 COPY repos/* /etc/yum.repos.d/
 ADD systemd /systemd
-RUN yum install -y initscripts rsyslog && groupadd fife && \
-    useradd condor && useradd grid && useradd rexbatch && useradd dbox && yum -y  install jobsub && \
-    systemctl enable condor && systemctl enable httpd &&  systemctl enable rsyslog
+COPY certs/* /etc/grid-security/ 
+COPY condor_config_d/* /etc/condor/config.d/
+COPY certs/hostcert.pem /etc/grid-security/jobsub/jobsubcert.pem
+COPY certs/hostkey.pem /etc/grid-security/jobsub/jobsubkey.pem
+COPY confs/* /etc/httpd/conf.d/
+COPY ini/* /opt/jobsub/server/conf/
+COPY cigetcertopts.txt /var/www/html/cigetcertopts.txt
+COPY sudoers /etc/sudoers
+RUN yum install -y initscripts rsyslog && groupadd fife &&\
+    useradd condor && useradd grid && useradd rexbatch && useradd dbox &&\
+    yum -y  install jobsub &&  yum -y install sudo &&\
+    mkdir -p /fife/local/scratch/uploads && mkdir -p /etc/grid-security/jobsub &&\
+    mkdir -p /var/log/jobsub && mkdir -p /var/lib/jobsub/ferry &&\
+    systemctl enable condor && systemctl enable httpd &&  systemctl enable rsyslog && \
+    chown -R rexbatch /etc/grid-security/jobsub && chown -R rexbatch /var/log/jobsub &&\
+    chown -R rexbatch /var/lib/jobsub && chown -R rexbatch /fife/local/scratch/uploads && \
+    groupadd cdf && useradd novapro && echo OPENSSL_ALLOW_PROXY_CERTS=1 >> /etc/sysconfig/httpd
+COPY multi-user.target.wants /etc/systemd/system/
 ENTRYPOINT [ "/systemd" ]
