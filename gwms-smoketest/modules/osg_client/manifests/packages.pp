@@ -21,7 +21,7 @@ class osg_client::packages {
       ensure => 'present',
     }
 
-    package { 'fetch-crl' :
+    package { 'osg-ca-certs-updater' :
       ensure => 'present',
     }
 
@@ -45,7 +45,7 @@ class osg_client::packages {
       install_options => '--enablerepo=osg',
     }
 
-    package { 'osg-ca-scripts':
+    package { 'osg-ca-certs':
       ensure          => present,
       install_options => '--enablerepo=osg',
     }

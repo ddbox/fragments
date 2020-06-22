@@ -1,12 +1,4 @@
 class osg_client::files{
-  
-
-
-  $esg = '/etc/grid-security'
-  exec { 'setupCA':
-    command => '/usr/sbin/osg-ca-manage setupCA --location root --url osg',
-    require => [ Package['osg-ca-scripts'] ],
-  }
 
     
   file { '/etc/sysconfig/iptables' :
