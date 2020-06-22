@@ -1,0 +1,21 @@
+---
+  - name: download and install epel and osg rpms
+    hosts: all
+    vars: 
+      osg_ver: 3.4
+      os_mjr: "{{ansible_distribution_major_version}}"
+    tasks:
+      - name: "install epel rpm"
+        yum:
+          name: "https://download.fedoraproject.org/pub/epel/epel-release-latest-{{ os_mjr }}.noarch.rpm"
+          state: present
+          validate_certs: no
+
+      - name: "install osg rpm"
+        yum:
+          name: "https://repo.opensciencegrid.org/osg/{{ osg_ver }}/osg-{{ osg_ver }}-el{{ os_mjr }}-release-latest.rpm"
+          state: present
+          validate_certs: no
+
+
+
