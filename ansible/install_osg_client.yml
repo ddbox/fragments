@@ -1,0 +1,40 @@
+---
+  - name: install osg client software
+    hosts: all
+    tasks:
+      - name: "install client packages"
+        yum:
+          name: "{{ packages }}"
+        vars:
+          packages:
+            - osg-ca-certs
+            - osg-ca-certs-updater
+            - condor
+            - voms-clients-cpp
+            - osg-wn-client
+            - cvmfs
+
+      - name: "install cvmfs config file"
+        copy:
+          src: templates/etc.cvmfs.default.local.erb
+          dest: '/etc/cvmfs/default.local'
+          owner: root
+          mode: '0644'
+        notify: "restart cvmfs"
+
+      - name: "start autofs"
+        service:
+          name: autofs
+          state: started
+        notify: "restart cvmfs"
+
+
+    handlers:
+      - name: start-cvmfs
+        shell: | 
+          /usr/bin/cvmfs_config setup  
+        listen: "restart cvmfs"
+
+
+
+
