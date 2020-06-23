@@ -31,8 +31,8 @@
 
     handlers:
       - name: start-cvmfs
-        shell: | 
-          /usr/bin/cvmfs_config setup  
+        shell: |
+          /usr/bin/cvmfs_config setup
         listen: "restart cvmfs"
 
 

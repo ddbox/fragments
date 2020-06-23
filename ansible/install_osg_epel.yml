@@ -1,9 +1,9 @@
 ---
   - name: download and install epel and osg rpms
     hosts: all
-    vars: 
+    vars:
       osg_ver: 3.4
-      os_mjr: "{{ansible_distribution_major_version}}"
+      os_mjr: "{{ ansible_distribution_major_version }}"
     tasks:
       - name: "install epel rpm"
         yum:
