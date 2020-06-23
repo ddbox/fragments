@@ -1,0 +1,30 @@
+---
+  - name: install htcondor yum repo
+    hosts: all
+    vars:
+      os_mjr: "{{ ansible_distribution_major_version }}"
+    tasks:
+
+      - name: "install htcondor stable"
+        get_url:
+          url: http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel{{ os_mjr }}.repo
+          dest: '/etc/yum.repos.d/htcondor.repo'
+          owner: root
+          mode: '0644'
+        notify: "install htcondor key"
+
+      - name: "install htcondor development"
+        get_url:
+          url: http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-development-rhel{{ os_mjr }}.repo
+          dest: '/etc/yum.repos.d/htcondor-development.repo'
+          owner: root
+          mode: '0644'
+        ignore_errors: yes
+
+      - name: install-key
+        shell: |
+         rpm --import http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor warn=no
+
+
+
+
